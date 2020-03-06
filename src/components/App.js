@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
+import LocationSearch from './LocationSearch';
 
 const App = () => {
-  return <div>App</div>;
+  const [location, setLocation] = useState('');
+
+  const onSearchLocation = term => {
+    setLocation(term);
+  };
+
+  return (
+    <div className="ui fluid container">
+      <div className="ui segment">
+        <LocationSearch onSearchLocation={onSearchLocation} />
+        {location}
+      </div>
+    </div>
+  );
 };
 
 export default App;
